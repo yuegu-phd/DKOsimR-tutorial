@@ -10,7 +10,7 @@ how to :ref:`installation` the project.
 
 .. note::
 
-   This simultaion tool is under active development.
+   This simulation tool is under active development.
 
 Contents
 --------
