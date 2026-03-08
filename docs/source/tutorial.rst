@@ -40,9 +40,9 @@ Then you may simply load the package:
    library(DKOsimR)
    
 
-Graphical Overview of Study Design
+Graphical Overview of Study Design:
 ----------------------------------
-.. image:: images/Fig3.tif
+.. image:: images/Fig3.png
    :width: 700px
    :align: center
    :alt: Graphical overview of DKOsim study design
@@ -118,19 +118,19 @@ Miscellaneous:
 Running a Simulation
 --------------------
 
-Example simulation using default parameters.
+Example simulation using default parameters:
 
 .. code-block:: r
 
    dkosim(sample_name = "test", n = 40)
 
-Output files will be generated in current working directory.
+Output data will be generated in current working directory.
 
 Simulation Approximating Laboratory Data
 ----------------------------------------
 
-DKOsimR also provides a wrapper function to simulate data that resembles
-real laboratory CRISPR screening datasets.
+DKOsimR also provides a wrapper function for lab approximating mode to simulate data that resembles
+real laboratory CRISPR screening datasets:
 
 .. code-block:: r
 
@@ -139,8 +139,34 @@ real laboratory CRISPR screening datasets.
 This function applies parameter settings that approximate realistic laboratory
 data distributions.
 
-All parameters can be further customized by users to fit specific experimental setup as desired.
+All parameters can be further customized by users to fit specific experimental setup as desired in both mode, for example:
 
+.. code-block:: r
+
+   dkosim(sample_name="test",
+         coverage=10,
+         n=60,
+         n_guide_g=2,
+         sd_freq0 = 1/3.29,
+         moi = 0.3,
+         p_gi=0.03,
+         sd_gi=1.5,
+         p_high=1,
+         mode="CRISPRn-100%Eff",
+         pt_neg=0.15,
+         pt_pos=0.05,
+         pt_wt=0.75,
+         pt_ctrl=0.05,
+         mu_neg=-0.75,
+         sd_neg=0.1,
+         mu_pos=0.75,
+         sd_pos=0.1,
+         sd_wt=0.25,
+         size.bottleneck = 2,
+         n.bottlenecks= 1,
+         n.iterations = 30,
+         rseed = 111,
+         path = ".")
 
 Applying Genetic Interaction Detection Methods
 -----------------------------------------------
