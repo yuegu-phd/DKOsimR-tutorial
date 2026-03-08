@@ -13,7 +13,7 @@ experimental conditions.
 
 This tutorial demonstrates:
 
-- full list of tunable parameters
+- list of tunable parameters
 - default workflow for generating synthetic data
 - simulation setup to approximate laboratory data patterns
 - an example of applying genetic interaction (GI) detection method on simulated data
@@ -22,7 +22,7 @@ This tutorial demonstrates:
 Installation
 ------------
 
-To start running simulation, simply download and install R/RStudio as the first step. You may then install and load DKOsimR with following commands:
+To start running simulation, simply download and install R/RStudio as the first step. You may then install DKOsimR with following commands:
 
 .. code-block:: r
 
@@ -30,26 +30,71 @@ To start running simulation, simply download and install R/RStudio as the first 
        install.packages("devtools")
 
    devtools::install_github("yuegu-phd/DKOsimR", quiet = TRUE)
+   devtools::install(dependencies = TRUE)
+
+
+Then you may simply load the package:
+.. code-block:: r
 
    library(DKOsimR)
-
-make sure all all required dependencies are installed using `devtools::install(dependencies = TRUE)`.
+   
 
 List of Tunable Parameters
 --------------------------
 
-Key parameters controlling DKOsim simulation include:
-
+Initialized Library Parameters:
 - **sample_name** : name of simulation run
 - **coverage** : cell representation per guide
 - **n** : number of unique single genes
 - **n_guide_g** : number of guides per gene
 - **moi** : multiplicity of infection
 - **sd_freq0** : dispersion of initial counts distribution
+
+Genetic Interaction (GI) Parameters:
 - **p_gi** : proportion of interacting gene pairs
+- **sd_gi** : std. dev. of re-sampled phenotype with GI presence
+
+Gene Class Parameters:
+1. Percentage (%) of theoretical phenotype to each gene class
+– **pt_neg**: % negative
+– **pt_pos**: % positive
+– **pt_wt**: % wild-type
+– **pt_ctrl**: % non-targeting control
+
+2. Mean and std. dev. of theoretical phenotype
+– **mu_neg**: mean of negative genes
+– **sd_neg**: std. dev. of negative genes
+– **mu_pos**: mean of positive genes
+– **sd_pos**: std. dev. of positive genes
+– **sd_wt**: std. dev. of wild-type genes
+
+Guide Parameters:
+1. high-efficacy guides proportion and CRISPR mode
 - **p_high** : proportion of high-efficacy guides
-- **n_e** : number of passages
-- **n_b** : bottleneck size
+– **mode**: CRISPR mode:
+   - use CRISPRn-100%Eff if need 100% effcient guides without randomization
+   - use CRISPRn if need high-efficient guides drawn from distribution
+2. Mean and std. dev. of guide-efficacy
+– **mu_high**: mean of high-efficacy guides
+– **sd_high**: std. dev of high-efficacy guides
+– **mu_low**: mean of low-efficacy guides
+– **sd_low**: std. dev of high-efficacy guides
+
+Cell Doublings Parameters:
+– **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
+– **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottle-
+necks?
+– **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30
+doublings if we didn’t encounter bottleneck
+
+Randomization Parameter:
+– **rseed**: values used for random number generator - use same number to control same sets of genes
+having GI
+
+Miscellaneous:
+– **path**: path to directory to save outputs of data and logs from simulation
+– **cores_free**: number of cores that are left to be free in parallel computing
+
 
 Running a Simulation
 --------------------
