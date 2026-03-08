@@ -34,6 +34,7 @@ To start running simulation, simply download and install R/RStudio as the first 
 
 
 Then you may simply load the package:
+
 .. code-block:: r
 
    library(DKOsimR)
@@ -43,6 +44,7 @@ List of Tunable Parameters
 --------------------------
 
 Initialized Library Parameters:
+
 - **sample_name** : name of simulation run
 - **coverage** : cell representation per guide
 - **n** : number of unique single genes
