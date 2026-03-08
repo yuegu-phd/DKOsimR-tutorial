@@ -40,7 +40,7 @@ Then you may simply load the package:
    library(DKOsimR)
    
 
-Graphical Overview of Study Design:
+Graphical Overview of Study Design
 ----------------------------------
 .. image:: images/Fig3.png
    :width: 700px
