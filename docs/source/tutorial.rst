@@ -54,53 +54,53 @@ Gene Class Parameters:
 
 1. Percentage (%) of theoretical phenotype to each gene class
 
-– **pt_neg**: % negative
-– **pt_pos**: % positive
-– **pt_wt**: % wild-type
-– **pt_ctrl**: % non-targeting control
+- **pt_neg**: % negative
+- **pt_pos**: % positive
+- **pt_wt**: % wild-type
+- **pt_ctrl**: % non-targeting control
 
 2. Mean and std. dev. of theoretical phenotype
 
-– **mu_neg**: mean of negative genes
-– **sd_neg**: std. dev. of negative genes
-– **mu_pos**: mean of positive genes
-– **sd_pos**: std. dev. of positive genes
-– **sd_wt**: std. dev. of wild-type genes
+- **mu_neg**: mean of negative genes
+- **sd_neg**: std. dev. of negative genes
+- **mu_pos**: mean of positive genes
+- **sd_pos**: std. dev. of positive genes
+- **sd_wt**: std. dev. of wild-type genes
 
 Guide Parameters:
 
 1. high-efficacy guides proportion and CRISPR mode
 
 - **p_high** : proportion of high-efficacy guides
-– **mode**: CRISPR mode:
+- **mode**: CRISPR mode:
 
    - use CRISPRn-100%Eff if need 100% effcient guides without randomization
    - use CRISPRn if need high-efficient guides drawn from distribution
 
 2. Mean and std. dev. of guide-efficacy
 
-– **mu_high**: mean of high-efficacy guides
-– **sd_high**: std. dev of high-efficacy guides
-– **mu_low**: mean of low-efficacy guides
-– **sd_low**: std. dev of high-efficacy guides
+- **mu_high**: mean of high-efficacy guides
+- **sd_high**: std. dev of high-efficacy guides
+- **mu_low**: mean of low-efficacy guides
+- **sd_low**: std. dev of low-efficacy guides
 
 Cell Doublings Parameters:
 
-– **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
-– **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottle-
+- **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
+- **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottle-
 necks?
-– **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30
-doublings if we didn’t encounter bottleneck
+- **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30
+doublings if we didn't encounter bottleneck
 
 Randomization Parameter:
 
-– **rseed**: values used for random number generator - use same number to control same sets of genes
+- **rseed**: values used for random number generator - use same number to control same sets of genes
 having GI
 
 Miscellaneous:
 
-– **path**: path to directory to save outputs of data and logs from simulation
-– **cores_free**: number of cores that are left to be free in parallel computing
+- **path**: path to directory to save outputs of data and logs from simulation
+- **cores_free**: number of cores that are left to be free in parallel computing
 
 
 Running a Simulation
