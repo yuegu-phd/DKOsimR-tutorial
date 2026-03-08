@@ -8,20 +8,21 @@ Introduction
 
 DKOsimR is an R package designed for generating synthetic CRISPR double-knockout
 screening data. It allows researchers to simulate cell growth dynamics and
-genetic interactions between gene pairs under controlled experimental conditions.
+genetic interactions between gene pairs under controlled library setup and 
+experimental conditions.
 
 This tutorial demonstrates:
 
-- the list of tunable parameters
+- full list of tunable parameters
 - default workflow for generating synthetic data
-- simulation approximating laboratory data patterns
-- an example genetic interaction (GI) detection workflow
-- guidance on choosing suitable parameters
+- simulation setup to approximate laboratory data patterns
+- an example of applying genetic interaction (GI) detection method on simulated data
+- guidance on picking suitable parameters
 
 Installation
 ------------
 
-Install DKOsimR from GitHub.
+To start running simulation, simply download and install R/RStudio as the first step. You may then install and load DKOsimR with following commands:
 
 .. code-block:: r
 
@@ -31,6 +32,8 @@ Install DKOsimR from GitHub.
    devtools::install_github("yuegu-phd/DKOsimR", quiet = TRUE)
 
    library(DKOsimR)
+
+make sure all all required dependencies are installed using `devtools::install(dependencies = TRUE)`.
 
 List of Tunable Parameters
 --------------------------
