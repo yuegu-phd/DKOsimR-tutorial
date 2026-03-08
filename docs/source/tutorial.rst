@@ -1,4 +1,4 @@
-DKOsimR Tutorial
+Tutorial
 ================
 
 How to generate synthetic CRISPR data using DKOsimR?
@@ -40,10 +40,25 @@ Then you may simply load the package:
    library(DKOsimR)
    
 
+Graphical Overview of Study Design
+----------------------------------
+.. image:: images/Fig3.tif
+   :width: 700px
+   :align: center
+   :alt: Graphical overview of DKOsim study design
+
+
 List of Tunable Parameters
 --------------------------
 
 Initialized Library Parameters:
+
+- **sample_name**: name of the simulation run
+- **coverage**: cell representation per guide
+- **n**: number of unique single gene
+- **n_guide_g**: number of guide per gene
+- **moi**: multiplicity of infection - % of cells that are transfected by any virus
+- **sd_freq0**: dispersion of initial counts distribution
 
 Genetic Interaction (GI) Parameters:
 
@@ -87,15 +102,12 @@ Guide Parameters:
 Cell Doublings Parameters:
 
    - **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
-   - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottle-
-necks?
-   - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30
-doublings if we didn't encounter bottleneck
+   - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottlenecks?
+   - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30 doublings if we didn't encounter bottleneck
 
 Randomization Parameter:
 
-   - **rseed**: values used for random number generator - use same number to control same sets of genes
-having GI
+   - **rseed**: values used for random number generator - use same number to control same sets of genes having GI
 
 Miscellaneous:
 
@@ -112,13 +124,13 @@ Example simulation using default parameters.
 
    dkosim(sample_name = "test", n = 40)
 
-Output files will be generated in the working directory.
+Output files will be generated in current working directory.
 
 Simulation Approximating Laboratory Data
 ----------------------------------------
 
 DKOsimR also provides a wrapper function to simulate data that resembles
-observed CRISPR screening experiments.
+real laboratory CRISPR screening datasets.
 
 .. code-block:: r
 
@@ -127,12 +139,15 @@ observed CRISPR screening experiments.
 This function applies parameter settings that approximate realistic laboratory
 data distributions.
 
+All parameters can be further customized by users to fit specific experimental setup as desired.
+
+
 Applying Genetic Interaction Detection Methods
 -----------------------------------------------
 
 Once simulated count data are generated, users can apply GI detection methods.
 
-Example workflow using differential log-fold change (dLFC):
+Example analytical workflow using delta log-fold change (dLFC):
 
 .. code-block:: r
 
