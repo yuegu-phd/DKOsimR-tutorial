@@ -248,4 +248,4 @@ DKOsimR enables researchers to:
 - benchmark genetic interaction detection methods
 - evaluate and optimize experimental design parameters
 
-For further information, please refer to the API documentation and the vignettes files of DKOsimR R package.
+For further information, please refer to the API documentation and the vignettes file (:download:`PDF <files/DKOsimR_vignettes.pdf>`) of DKOsimR R package.
