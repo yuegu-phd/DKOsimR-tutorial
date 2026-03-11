@@ -1,5 +1,5 @@
 Tutorial
-================
+========
 
 How to generate synthetic CRISPR data using DKOsimR?
 
@@ -18,11 +18,14 @@ experimental conditions.
 
 This tutorial demonstrates:
 
-- list of tunable parameters
-- default workflow for generating synthetic data
-- simulation setup to approximate laboratory data patterns
-- an example of applying genetic interaction (GI) detection method on simulated data
-- guidance on picking suitable parameters
+- :ref:`Installation guide <installation>`
+- :ref:`Graphical overview of simulation framework <graph-workflow>`
+- :ref:`List of tunable parameters <list-parameters>`
+- :ref:`Quickstart on default workflow to run simulation <quick_start>`
+- :ref:`Guide to customize simulation setup and approximate lab data <custom_sim>`
+- :ref:`Summary on why use DKOsimR <summary>`
+
+.. _installation:
 
 Installation
 ------------
@@ -45,6 +48,7 @@ Then you may simply load the package:
 
    library(DKOsimR)
    
+.. _graph-workflow:
 
 Graphical Overview of Study Design
 ----------------------------------
@@ -53,6 +57,7 @@ Graphical Overview of Study Design
    :align: center
    :alt: Graphical overview of DKOsim study design
 
+.. _list-parameters:
 
 List of Tunable Parameters
 --------------------------
@@ -127,9 +132,10 @@ Miscellaneous
    - **path**: path to directory to save outputs of data and logs from simulation
    - **cores_free**: number of cores that are left to be free in parallel computing
 
+.. _quick_start:
 
 Quick Start
---------------------
+-----------
 
 After loading DKOsimR, to run a simulation with default parameters, you may simply use
 
@@ -147,6 +153,7 @@ Alternatively, you may run a simulation in lab approximating mode, by default
 
 This function applies parameter settings that approximate realistic laboratory data distributions.
 
+.. _custom_sim:
 
 Customized Simulation
 ---------------------
@@ -181,6 +188,8 @@ All tunable parameters may be adjusted by desires in both mode. For example,
           path = ".")
 
 Output data will be generated in current working directory.
+
+.. _sim_lab:
 
 Simulation Approximating Laboratory Data
 ----------------------------------------
@@ -224,6 +233,7 @@ All parameters can be further customized by users to fit specific experimental s
           rseed = 111,
           path = ".")
 
+.. _summary:
 
 Summary
 -------

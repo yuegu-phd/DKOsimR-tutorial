@@ -19,6 +19,8 @@ This tutorial demonstrates:
 - an example of applying genetic interaction (GI) detection method on simulated data
 - guidance on picking suitable parameters
 
+.. _tunable-parameters:
+
 Installation
 ------------
 
@@ -39,6 +41,7 @@ Then you may simply load the package:
 
    library(DKOsimR)
    
+.. _graph-workflow:
 
 Graphical Overview of Study Design
 ----------------------------------
@@ -47,6 +50,7 @@ Graphical Overview of Study Design
    :align: center
    :alt: Graphical overview of DKOsim study design
 
+.. _list-parameters:
 
 List of Tunable Parameters
 --------------------------
@@ -121,6 +125,7 @@ Miscellaneous
    - **path**: path to directory to save outputs of data and logs from simulation
    - **cores_free**: number of cores that are left to be free in parallel computing
 
+.. _run-simulation:
 
 Running a Simulation
 --------------------
@@ -132,6 +137,8 @@ Example simulation using default parameters:
    dkosim(sample_name = "test", n = 40)
 
 Output data will be generated in current working directory.
+
+.. _sim-lab:
 
 Simulation Approximating Laboratory Data
 ----------------------------------------

@@ -1,6 +1,11 @@
 Running Simulation
 ==================
 
+.. admonition:: Abbreviations
+
+   **KO**, knockout; **SKO**, single knockout; **DKO**, double knockout; **%**, percentage;
+   **GI**, genetic interaction; **std. dev.**, standard deviation.
+
 To generate synthetic double knockout data, **by default, the simulated datasets would be stored
 under data/ in the current directory, use ``getwd()`` to navigate your current working directory.**
 The default values for parameters of simulated CRISPR screens are set based on empirical assumptions as
