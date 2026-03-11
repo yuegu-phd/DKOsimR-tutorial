@@ -22,9 +22,7 @@ See the :doc:`Tutorial <tutorial>` for installation, list of parameters, and a q
 .. note::
 
    The simulation and documentations are under active development.
-
-Contents
---------
+   
 
 .. toctree::
    :maxdepth: 2

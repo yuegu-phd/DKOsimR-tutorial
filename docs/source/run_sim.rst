@@ -1,4 +1,4 @@
-Tutorial
+Running Simulation
 ================
 
 How to generate synthetic CRISPR data using DKOsimR?
