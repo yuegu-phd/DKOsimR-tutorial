@@ -17,49 +17,42 @@ How should I choose parameters?
 
 Following the list of all tunable parameters:
 
-List of Tunable Parameters
---------------------------
-
 Initialized Library Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **sample_name**: name simulation with number of genes, number of guides per gene, number of initialized gene classes, and coverage, 
-seperated by “_“. For example,”DKOsimR_120x3x4_100x_run1” indicates the 1st run for DKO simulation run with 120 genes, 3 guides per genes, 
-and all 4 initialized gene classes (negative, wild-type, positive, non-targeting control), with 100x coverage.
+- **sample_name**: name simulation with number of genes, number of guides per gene, number of initialized gene classes, and coverage, seperated by “_“. For example,”DKOsimR_120x3x4_100x_run1” indicates the 1st run for DKO simulation run with 120 genes, 3 guides per genes, and all 4 initialized gene classes (negative, wild-type, positive, non-targeting control), with 100x coverage.
 - **coverage**: 100 would be sufficient for most cases, set lower to shorten running time but simulated data 
 might have weaker reproducibility.
 - **n**: put the number of unique single gene by desire. 100 would be su!cient for most cases.
 - **n_guide_g**: set as 2 or 3.
 - **moi**: keep unchanged. Default value is 0.3.
-- **sd_freq0**: 1/3.29 by default, chosen by setting a 10-fold di"erence between 95th and 5th percentiles
-of SKO counts distribution. Set to 1/2.56, 1/2.07, 1/1.68, 1/1.35, 1/1.05, if you want a 10-fold
-difference between 90th and 10th, 85th and 15th, 80th and 20th, 75th and 25th, 70th and 30th percentiles, respectively.
+- **sd_freq0**: 1/3.29 by default, chosen by setting a 10-fold di"erence between 95th and 5th percentiles of SKO counts distribution. Set to 1/2.56, 1/2.07, 1/1.68, 1/1.35, 1/1.05, if you want a 10-fold difference between 90th and 10th, 85th and 15th, 80th and 20th, 75th and 25th, 70th and 30th percentiles, respectively.
 
 Genetic Interaction (GI) Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **p_gi** : proportion of interacting gene pairs
-- **sd_gi** : std. dev. of re-sampled phenotype with GI presence
+- **p_gi** : 0.03 by default, chosen by empirical assumption on the presence of GI in real lab that are close to 3%. Can be tuned higher if want higher presence of GIs.
+- **sd_gi** : 1.5 by default and would be su!cient for most cases. This directly a"ects GI magnitude, and can be tuned lower for smaller GI magnitude.
 
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-Percentage (%) of theoretical phenotype to each gene class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Percentage (%) of theoretical phenotype to each gene class - make sure the add up to 1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **pt_neg**: % negative
-   - **pt_pos**: % positive
-   - **pt_wt**: % wild-type
-   - **pt_ctrl**: % non-targeting control
+   - **pt_neg**: set to values from 0.15 to 0.3 as desired.
+   - **pt_pos**: set to values from 0 to 0.05 as desired.
+   - **pt_wt**: set to values from 0.7 to 0.9 as desired.
+   - **pt_ctrl**: set to values from 0.05 to 0.1 as desired.
 
 Mean and std. dev. of theoretical phenotype
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **mu_neg**: mean of negative genes
-   - **sd_neg**: std. dev. of negative genes
-   - **mu_pos**: mean of positive genes
-   - **sd_pos**: std. dev. of positive genes
-   - **sd_wt**: std. dev. of wild-type genes
+   - **mu_neg**: set to values from -0.01 to -0.8 as desired.
+   - **sd_neg**: set to values from 0.1 to 0.5 as desired.
+   - **mu_pos**: set to values from 0.01 to 0.8 as desired.
+   - **sd_pos**: set to values from 0.1 to 0.5 as desired.
+   - **sd_wt**: set to values from 0.1 to 0.5 as desired.
 
 Guide Parameters
 ~~~~~~~~~~~~~~~~
