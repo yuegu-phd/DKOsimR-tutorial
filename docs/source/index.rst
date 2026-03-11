@@ -19,3 +19,6 @@ Contents
    :caption: Contents
 
    tutorial
+   run_sim
+   lab_approx
+

@@ -122,57 +122,14 @@ Miscellaneous
    - **cores_free**: number of cores that are left to be free in parallel computing
 
 
-Quick Start
+Running a Simulation
 --------------------
 
-After loading DKOsimR, to run a simulation with default parameters, you may simply use
+Example simulation using default parameters:
 
 .. code-block:: r
 
    dkosim(sample_name = "test", n = 40)
-
-Adjust sample_name and n to name run and initialize number of perturbed genes. Output data will be generated in current working directory.
-
-Alternatively, you may run a simulation in lab approximating mode, by default
-
-.. code-block:: r
-
-   dkosim_lab(sample_name = "test_lab", n = 20)
-
-This function applies parameter settings that approximate realistic laboratory data distributions.
-
-
-Customized Simulation
---------------------
-
-All tunable parameters may be adjusted by desires in both mode. For example,
-
-.. code-block:: r
-
-   dkosim(sample_name="test",
-          coverage=10,
-          n=60,
-          n_guide_g=2,
-          sd_freq0 = 1/3.29,
-          moi = 0.3,
-          p_gi=0.03,
-          sd_gi=1.5,
-          p_high=1,
-          mode="CRISPRn-100%Eff",
-          pt_neg=0.15,
-          pt_pos=0.05,
-          pt_wt=0.75,
-          pt_ctrl=0.05,
-          mu_neg=-0.75,
-          sd_neg=0.1,
-          mu_pos=0.75,
-          sd_pos=0.1,
-          sd_wt=0.25,
-          size.bottleneck = 2,
-          n.bottlenecks= 1,
-          n.iterations = 30,
-          rseed = 111,
-          path = ".")
 
 Output data will be generated in current working directory.
 
@@ -194,30 +151,68 @@ All parameters can be further customized by users to fit specific experimental s
 .. code-block:: r
 
    dkosim(sample_name="test",
-          coverage=10,
-          n=60,
-          n_guide_g=2,
-          sd_freq0 = 1/3.29,
-          moi = 0.3,
-          p_gi=0.03,
-          sd_gi=1.5,
-          p_high=1,
-          mode="CRISPRn-100%Eff",
-          pt_neg=0.15,
-          pt_pos=0.05,
-          pt_wt=0.75,
-          pt_ctrl=0.05,
-          mu_neg=-0.75,
-          sd_neg=0.1,
-          mu_pos=0.75,
-          sd_pos=0.1,
-          sd_wt=0.25,
-          size.bottleneck = 2,
-          n.bottlenecks= 1,
-          n.iterations = 30,
-          rseed = 111,
-          path = ".")
+         coverage=10,
+         n=60,
+         n_guide_g=2,
+         sd_freq0 = 1/3.29,
+         moi = 0.3,
+         p_gi=0.03,
+         sd_gi=1.5,
+         p_high=1,
+         mode="CRISPRn-100%Eff",
+         pt_neg=0.15,
+         pt_pos=0.05,
+         pt_wt=0.75,
+         pt_ctrl=0.05,
+         mu_neg=-0.75,
+         sd_neg=0.1,
+         mu_pos=0.75,
+         sd_pos=0.1,
+         sd_wt=0.25,
+         size.bottleneck = 2,
+         n.bottlenecks= 1,
+         n.iterations = 30,
+         rseed = 111,
+         path = ".")
 
+Applying Genetic Interaction Detection Methods
+-----------------------------------------------
+
+Once simulated count data are generated, users can apply GI detection methods.
+
+Example analytical workflow using delta log-fold change (dLFC):
+
+.. code-block:: r
+
+   library(DKOsimR)
+
+   data(example_data_repA)
+
+   head(example_data_repA)
+
+Users may apply several GI detection algorithms including:
+
+- dLFC
+- GEMINI
+- CTG
+- π-score
+
+These methods evaluate interaction effects between gene pairs based on
+log-fold changes observed in double knockout screens.
+
+Choosing Suitable Parameters
+----------------------------
+
+Recommended parameter choices for typical simulations:
+
+- **coverage** : 100
+- **n_guide_g** : 2 or 3
+- **p_gi** : 0.03
+- **p_high** : 1
+- **moi** : ~0.3
+
+These settings generally produce simulation outputs resembling realistic
+CRISPR screening experiments.
 
 Summary
 -------
@@ -226,6 +221,6 @@ DKOsimR enables researchers to:
 
 - generate reproducible synthetic CRISPR screening datasets
 - benchmark genetic interaction detection methods
-- evaluate and optimize experimental design parameters
+- evaluate experimental design parameters
 
 For further information, please refer to the API documentation.
