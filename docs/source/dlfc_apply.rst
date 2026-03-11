@@ -4,7 +4,7 @@ Applying GI Detection Methods on Simulated Data
 Delta Log Fold Change (dLFC) Application
 ----------------------------------------
 
-Here, we show how we may apply dLFC :cite:p:`dede2020multiplex` to calculate GI on simulated data, as an example
+Here, we show how we may apply dLFC [1] to calculate GI on simulated data, as an example
 to analyze the simulation output.
 
 .. code-block:: r
@@ -191,4 +191,4 @@ Check relevant details in the pre-built DKOsimR vignettes (:download:`PDF <files
 References
 ----------
 
-.. bibliography::
+[1] Dede, M., McLaughlin, M., Kim, E. et al. Multiplex enCas12a screens detect functional buffering among paralogs otherwise masked in monogenic Cas9 knockout screens. Genome Biol 21, 262 (2020). https://doi.org/10.1186/s13059-020-02173-2.

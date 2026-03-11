@@ -95,7 +95,7 @@ Customized Lab Mode
 
 Alternatively, you may adjust values to any tunable parameters as desired, or using the parameters described 
 in the full article to approximate actual lab data pattern in double CRISPR screens. For example, use the following code and 
-parameters to simulate Fong-2024 :cite:p:`fong2024multilineage` laboratory screens:
+parameters to simulate Fong-2024[1] laboratory screens:
 
 .. code-block:: r
 
@@ -128,4 +128,4 @@ Check more details in the full article and example output in the pre-built DKOsi
 References
 ----------
 
-.. bibliography::
+1. Fong, S.H., Kuenzi, B.M., Mattson, N.M. et al. A multilineage screen identifies actionable synthetic lethal interactions in human cancers. Nat Genet 57, 154–164 (2025). https://doi.org/10.1038/s41588-024-01971-9.
