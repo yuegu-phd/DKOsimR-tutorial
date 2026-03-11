@@ -16,7 +16,7 @@ See the tutorial page for installation, list of parameters, and a quickstart to 
 
    Shen, J., Zhao, D., Sasik, R. et al (2017). **Combinatorial CRISPR–Cas9 screens for de novo mapping 
    of genetic interactions.** 
-   *Nature Methods* 14, 573–576 (2017). DOI: 10.1038/nmeth.4225.
+   *Nature Methods* 14, 573-576 (2017). DOI: 10.1038/nmeth.4225.
 
 
 .. note::
