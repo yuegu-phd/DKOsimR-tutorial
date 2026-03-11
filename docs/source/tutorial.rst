@@ -51,8 +51,8 @@ Graphical Overview of Study Design
 List of Tunable Parameters
 --------------------------
 
-Initialized Library Parameters:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Initialized Library Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **sample_name**: name of the simulation run
 - **coverage**: cell representation per guide
@@ -61,13 +61,14 @@ Initialized Library Parameters:
 - **moi**: multiplicity of infection - % of cells that are transfected by any virus
 - **sd_freq0**: dispersion of initial counts distribution
 
-Genetic Interaction (GI) Parameters:
+Genetic Interaction (GI) Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **p_gi** : proportion of interacting gene pairs
 - **sd_gi** : std. dev. of re-sampled phenotype with GI presence
 
-Gene Class Parameters:
-~~~~~~~~~~~~~~~~~~~~~~
+Gene Class Parameters
+~~~~~~~~~~~~~~~~~~~~~
 
 1. Percentage (%) of theoretical phenotype to each gene class
 
@@ -84,7 +85,8 @@ Gene Class Parameters:
    - **sd_pos**: std. dev. of positive genes
    - **sd_wt**: std. dev. of wild-type genes
 
-Guide Parameters:
+Guide Parameters
+~~~~~~~~~~~~~~~~
 
 1. high-efficacy guides proportion and CRISPR mode
 
@@ -101,17 +103,20 @@ Guide Parameters:
    - **mu_low**: mean of low-efficacy guides
    - **sd_low**: std. dev of low-efficacy guides
 
-Cell Doublings Parameters:
+Cell Doublings Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
    - **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
    - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottlenecks?
    - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30 doublings if we didn't encounter bottleneck
 
-Randomization Parameter:
+Randomization Parameter
+~~~~~~~~~~~~~~~~~~~~~~~
 
    - **rseed**: values used for random number generator - use same number to control same sets of genes having GI
 
-Miscellaneous:
+Miscellaneous
+~~~~~~~~~~~~~
 
    - **path**: path to directory to save outputs of data and logs from simulation
    - **cores_free**: number of cores that are left to be free in parallel computing
