@@ -18,6 +18,9 @@ extensions = [
     'sphinxcontrib.bibtex'
 ]
 
+bibtex_bibfiles = ["references.bib"]
+bibtex_reference_style = "author_year"
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
@@ -25,8 +28,6 @@ intersphinx_mapping = {
 intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
-
-bibtex_bibfiles = ['references.bib']
 
 # -- Options for HTML output
 
