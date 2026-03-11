@@ -1,52 +1,65 @@
-Running Simulation
-==================
+Summary Guidance in Picking Suitable Parameters
+===============================================
 
-To generate synthetic double knockout data, **by default, the simulated datasets would be stored
-under data/ in the current directory, use** ``getwd()`` **to navigate your current working directory.**
-The default values for parameters of simulated CRISPR screens are set based on empirical assumptions as
-follows:
+In this section, from empirical DKO simulation runs, we provide a summary guidance on picking suitable
+parameters to run your simulated CRISPR screens in practice. **Please note that this section is mainly for
+a general suggestion to pick hyperparameters that could efficiently run simulations in practice,
+adjust the choice of parameters based on your desires and purpose when using DKOsimR, and
+check reference article for more detailed info.** 
 
 .. admonition:: Abbreviations
 
    **KO**, knockout; **SKO**, single knockout; **DKO**, double knockout; **%**, percentage;
    **GI**, genetic interaction; **std. dev.**, standard deviation.
 
-Default Values of Tunable Parameters
+How should I choose parameters?
 ------------------------------------
+
+Following the list of all tunable parameters:
+
+List of Tunable Parameters
+--------------------------
 
 Initialized Library Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **coverage**: 100
-- **n_guide_g**: 3
-- **moi**: 0.3
-- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold difference between 95th and 5th percentiles of SKO counts distribution)
+- **sample_name**: name simulation with number of genes, number of guides per gene, number of initialized gene classes, and coverage, 
+seperated by “_“. For example,”DKOsimR_120x3x4_100x_run1” indicates the 1st run for DKO simulation run with 120 genes, 3 guides per genes, 
+and all 4 initialized gene classes (negative, wild-type, positive, non-targeting control), with 100x coverage.
+- **coverage**: 100 would be sufficient for most cases, set lower to shorten running time but simulated data 
+might have weaker reproducibility.
+- **n**: put the number of unique single gene by desire. 100 would be su!cient for most cases.
+- **n_guide_g**: set as 2 or 3.
+- **moi**: keep unchanged. Default value is 0.3.
+- **sd_freq0**: 1/3.29 by default, chosen by setting a 10-fold di"erence between 95th and 5th percentiles
+of SKO counts distribution. Set to 1/2.56, 1/2.07, 1/1.68, 1/1.35, 1/1.05, if you want a 10-fold
+difference between 90th and 10th, 85th and 15th, 80th and 20th, 75th and 25th, 70th and 30th percentiles, respectively.
 
-GI Parameters
+Genetic Interaction (GI) Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **p_gi** : 0.03
-- **sd_gi** : 1.5
+- **p_gi** : proportion of interacting gene pairs
+- **sd_gi** : std. dev. of re-sampled phenotype with GI presence
 
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-% of theoretical phenotype to each gene class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Percentage (%) of theoretical phenotype to each gene class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **pt_neg**: 0.15
-   - **pt_pos**: 0.05
-   - **pt_wt**: 0.75
-   - **pt_ctrl**: 0.05
+   - **pt_neg**: % negative
+   - **pt_pos**: % positive
+   - **pt_wt**: % wild-type
+   - **pt_ctrl**: % non-targeting control
 
 Mean and std. dev. of theoretical phenotype
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **mu_neg**: -0.75
-   - **sd_neg**: 0.1
-   - **mu_pos**: 0.75
-   - **sd_pos**: 0.1
-   - **sd_wt**: 0.25
+   - **mu_neg**: mean of negative genes
+   - **sd_neg**: std. dev. of negative genes
+   - **mu_pos**: mean of positive genes
+   - **sd_pos**: std. dev. of positive genes
+   - **sd_wt**: std. dev. of wild-type genes
 
 Guide Parameters
 ~~~~~~~~~~~~~~~~
@@ -54,34 +67,37 @@ Guide Parameters
 High-efficacy guides proportion and CRISPR mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **p_high** : 1
-   - **mode**: `CRISPRn-100%Eff`
+   - **p_high** : proportion of high-efficacy guides
+   - **mode**: CRISPR mode:
+
+      - use CRISPRn-100%Eff if need 100% effcient guides without randomization
+      - use CRISPRn if need high-efficient guides drawn from distribution
 
 Mean and std. dev. of guide-efficacy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **mu_high**: 0.9
-   - **sd_high**: 0.1
-   - **mu_low**: 0.05
-   - **sd_low**: 0.07
+   - **mu_high**: mean of high-efficacy guides
+   - **sd_high**: std. dev of high-efficacy guides
+   - **mu_low**: mean of low-efficacy guides
+   - **sd_low**: std. dev of low-efficacy guides
 
 Cell Doublings Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **size.bottleneck**: 2
-   - **n.bottlenecks**: 1
-   - **n.iterations**: 30
+   - **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
+   - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottlenecks?
+   - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30 doublings if we didn't encounter bottleneck
 
 Randomization Parameter
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **rseed**: NULL
+   - **rseed**: values used for random number generator - use same number to control same sets of genes having GI
 
 Miscellaneous
 ~~~~~~~~~~~~~
 
-   - **path**: current working directory
-   - **cores_free**: 1
+   - **path**: path to directory to save outputs of data and logs from simulation
+   - **cores_free**: number of cores that are left to be free in parallel computing
 
 Run Simulation by Default
 -------------------------
