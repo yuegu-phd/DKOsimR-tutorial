@@ -143,7 +143,7 @@ This function applies parameter settings that approximate realistic laboratory d
 
 
 Customized Simulation
---------------------
+---------------------
 
 All tunable parameters may be adjusted by desires in both mode. For example,
 
