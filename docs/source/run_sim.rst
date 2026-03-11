@@ -92,7 +92,6 @@ run. An example running code is as follows:
 Run Customized Simulation
 -------------------------
 
-
 Alternatively, you may adjust values to any tunable parameters as desired, but please make sure your input
 on percentage of each gene class add up to 1 for all classes, and each initialized number of genes is an
 integer. **You may also change the output directory using path in the function; by default, the
