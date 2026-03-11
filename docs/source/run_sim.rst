@@ -7,7 +7,7 @@ Running Simulation
    **GI**, genetic interaction; **std. dev.**, standard deviation.
 
 To generate synthetic double knockout data, **by default, the simulated datasets would be stored
-under data/ in the current directory, use ``getwd()`` to navigate your current working directory.**
+under data/ in the current directory, use** ``getwd()`` **to navigate your current working directory.**
 The default values for parameters of simulated CRISPR screens are set based on empirical assumptions as
 follows:
 
@@ -20,7 +20,7 @@ Initialized Library Parameters
 - **coverage**: 100
 - **n_guide_g**: 3
 - **moi**: 0.3
-- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold di"erence between 95th and 5th percentiles of SKO
+- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold difference between 95th and 5th percentiles of SKO
 counts distribution)
 
 Genetic Interaction (GI) Parameters
@@ -32,14 +32,16 @@ Genetic Interaction (GI) Parameters
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-1. % of theoretical phenotype to each gene class
+% of theoretical phenotype to each gene class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **pt_neg**: 0.15
    - **pt_pos**: 0.05
    - **pt_wt**: 0.75
    - **pt_ctrl**: 0.05
 
-2. Mean and std. dev. of theoretical phenotype
+Mean and std. dev. of theoretical phenotype
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **mu_neg**: -0.75
    - **sd_neg**: 0.1
@@ -50,12 +52,14 @@ Gene Class Parameters
 Guide Parameters
 ~~~~~~~~~~~~~~~~
 
-1. high-efficacy guides proportion and CRISPR mode
+High-efficacy guides proportion and CRISPR mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **p_high** : 1
    - **mode**: `CRISPRn-100%Eff`
 
-2. Mean and std. dev. of guide-efficacy
+Mean and std. dev. of guide-efficacy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **mu_high**: 0.9
    - **sd_high**: 0.1

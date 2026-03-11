@@ -81,14 +81,16 @@ Genetic Interaction (GI) Parameters
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-1. Percentage (%) of theoretical phenotype to each gene class
+Percentage (%) of theoretical phenotype to each gene class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **pt_neg**: % negative
    - **pt_pos**: % positive
    - **pt_wt**: % wild-type
    - **pt_ctrl**: % non-targeting control
 
-2. Mean and std. dev. of theoretical phenotype
+Mean and std. dev. of theoretical phenotype
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **mu_neg**: mean of negative genes
    - **sd_neg**: std. dev. of negative genes
@@ -99,7 +101,8 @@ Gene Class Parameters
 Guide Parameters
 ~~~~~~~~~~~~~~~~
 
-1. high-efficacy guides proportion and CRISPR mode
+High-efficacy guides proportion and CRISPR mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **p_high** : proportion of high-efficacy guides
    - **mode**: CRISPR mode:
@@ -107,7 +110,8 @@ Guide Parameters
       - use CRISPRn-100%Eff if need 100% effcient guides without randomization
       - use CRISPRn if need high-efficient guides drawn from distribution
 
-2. Mean and std. dev. of guide-efficacy
+Mean and std. dev. of guide-efficacy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **mu_high**: mean of high-efficacy guides
    - **sd_high**: std. dev of high-efficacy guides
