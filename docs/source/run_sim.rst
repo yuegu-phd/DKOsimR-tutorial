@@ -88,8 +88,8 @@ Run Simulation by Default
 -------------------------
 
 To run simulation by default, simply name your simulation by sample_name and specify the number of single
-genes by n. Be cautious that number of genes in each gene class should be an integer to optimize
-simulation run. A quick Simulation Settings Summary would be returned for each run. Additionally,
+genes by `n`. **Be cautious that number of genes in each gene class should be an integer to optimize
+simulation run.** A quick Simulation Settings Summary would be returned for each run. Additionally,
 number of cores used for parallel computing, Run Time in unit of hours would be collected after one successful
 run. An example running code is as follows:
 
