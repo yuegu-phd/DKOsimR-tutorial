@@ -52,6 +52,7 @@ List of Tunable Parameters
 --------------------------
 
 Initialized Library Parameters:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **sample_name**: name of the simulation run
 - **coverage**: cell representation per guide
@@ -66,6 +67,7 @@ Genetic Interaction (GI) Parameters:
 - **sd_gi** : std. dev. of re-sampled phenotype with GI presence
 
 Gene Class Parameters:
+~~~~~~~~~~~~~~~~~~~~~~
 
 1. Percentage (%) of theoretical phenotype to each gene class
 
