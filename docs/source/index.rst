@@ -7,16 +7,16 @@ It allows users and investigators to efficiently reproduce synthetic data where 
 
 See the tutorial page for installation, list of parameters, and a quickstart to run simulations.
 
-.. admonition:: Paper
+.. admonition:: Paper References
 
    Gu, Y., Hart, T. Leon-Novelo, L., & Shen, J.P. (2025). **Double-CRISPR Knockout Simulation (DKOsim): 
    A Monte-Carlo Randomization System to Model Cell Growth Behavior 
    and Infer the Optimal Library Design for Growth-Based Double Knockout Screens**
-   *Under Revision*. DOI:10.1101/2025.09.11.675497
+   *Under Revision*. https://doi.org/10.1101/2025.09.11.675497
 
    Shen, J., Zhao, D., Sasik, R. et al (2017). **Combinatorial CRISPR–Cas9 screens for de novo mapping 
    of genetic interactions.** 
-   *Nature Methods* 14, 573-576 (2017). DOI: 10.1038/nmeth.4225.
+   *Nature Methods* 14, 573-576 (2017). https://doi.org/10.1038/nmeth.4225
 
 
 .. note::
