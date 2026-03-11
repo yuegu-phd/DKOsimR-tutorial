@@ -1,227 +1,136 @@
 Running Simulation
-================
+==================
 
-How to generate synthetic CRISPR data using DKOsimR?
+To generate synthetic double knockout data, **by default, the simulated datasets would be stored
+under data/ in the current directory, use ``getwd()`` to navigate your current working directory.**
+The default values for parameters of simulated CRISPR screens are set based on empirical assumptions as
+follows:
 
-Introduction
-------------
-
-DKOsimR is an R package designed for generating synthetic CRISPR double-knockout
-screening data. It allows researchers to simulate cell growth dynamics and
-genetic interactions between gene pairs under controlled library setup and 
-experimental conditions.
-
-This tutorial demonstrates:
-
-- list of tunable parameters
-- default workflow for generating synthetic data
-- simulation setup to approximate laboratory data patterns
-- an example of applying genetic interaction (GI) detection method on simulated data
-- guidance on picking suitable parameters
-
-Installation
-------------
-
-To start running simulation, simply download and install R/RStudio as the first step. You may then install DKOsimR with following commands:
-
-.. code-block:: r
-
-   if(!requireNamespace("devtools", quietly = TRUE))
-       install.packages("devtools")
-
-   devtools::install_github("yuegu-phd/DKOsimR", quiet = TRUE)
-   devtools::install(dependencies = TRUE)
-
-Make sure all required dependencies are installed using ``devtools::install(dependencies = TRUE)``.
-
-Then you may simply load the package:
-
-.. code-block:: r
-
-   library(DKOsimR)
-   
-
-Graphical Overview of Study Design
-----------------------------------
-.. image:: images/Fig3.png
-   :width: 700px
-   :align: center
-   :alt: Graphical overview of DKOsim study design
-
-
-List of Tunable Parameters
---------------------------
+Default Values of Tunable Parameters
+------------------------------------
 
 Initialized Library Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **sample_name**: name of the simulation run
-- **coverage**: cell representation per guide
-- **n**: number of unique single gene
-- **n_guide_g**: number of guide per gene
-- **moi**: multiplicity of infection - % of cells that are transfected by any virus
-- **sd_freq0**: dispersion of initial counts distribution
+- **coverage**: 100
+- **n_guide_g**: 3
+- **moi**: 0.3
+- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold di"erence between 95th and 5th percentiles of SKO
+counts distribution)
 
 Genetic Interaction (GI) Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **p_gi** : proportion of interacting gene pairs
-- **sd_gi** : std. dev. of re-sampled phenotype with GI presence
+- **p_gi** : 0.03
+- **sd_gi** : 1.5
 
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-1. Percentage (%) of theoretical phenotype to each gene class
+1. % of theoretical phenotype to each gene class
 
-   - **pt_neg**: % negative
-   - **pt_pos**: % positive
-   - **pt_wt**: % wild-type
-   - **pt_ctrl**: % non-targeting control
+   - **pt_neg**: 0.15
+   - **pt_pos**: 0.05
+   - **pt_wt**: 0.75
+   - **pt_ctrl**: 0.05
 
 2. Mean and std. dev. of theoretical phenotype
 
-   - **mu_neg**: mean of negative genes
-   - **sd_neg**: std. dev. of negative genes
-   - **mu_pos**: mean of positive genes
-   - **sd_pos**: std. dev. of positive genes
-   - **sd_wt**: std. dev. of wild-type genes
+   - **mu_neg**: -0.75
+   - **sd_neg**: 0.1
+   - **mu_pos**: 0.75
+   - **sd_pos**: 0.1
+   - **sd_wt**: 0.25
 
 Guide Parameters
 ~~~~~~~~~~~~~~~~
 
 1. high-efficacy guides proportion and CRISPR mode
 
-   - **p_high** : proportion of high-efficacy guides
-   - **mode**: CRISPR mode:
-
-      - use CRISPRn-100%Eff if need 100% effcient guides without randomization
-      - use CRISPRn if need high-efficient guides drawn from distribution
+   - **p_high** : 1
+   - **mode**: `CRISPRn-100%Eff`
 
 2. Mean and std. dev. of guide-efficacy
 
-   - **mu_high**: mean of high-efficacy guides
-   - **sd_high**: std. dev of high-efficacy guides
-   - **mu_low**: mean of low-efficacy guides
-   - **sd_low**: std. dev of low-efficacy guides
+   - **mu_high**: 0.9
+   - **sd_high**: 0.1
+   - **mu_low**: 0.05
+   - **sd_low**: 0.07
 
 Cell Doublings Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
-   - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottlenecks?
-   - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30 doublings if we didn't encounter bottleneck
+   - **size.bottleneck**: 2
+   - **n.bottlenecks**: 1
+   - **n.iterations**: 30
 
 Randomization Parameter
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **rseed**: values used for random number generator - use same number to control same sets of genes having GI
+   - **rseed**: NULL
 
 Miscellaneous
 ~~~~~~~~~~~~~
 
-   - **path**: path to directory to save outputs of data and logs from simulation
-   - **cores_free**: number of cores that are left to be free in parallel computing
+   - **path**: current working directory
+   - **cores_free**: 1
 
+Run Simulation by Default
+-------------------------
 
-Running a Simulation
---------------------
-
-Example simulation using default parameters:
+To run simulation by default, simply name your simulation by sample_name and specify the number of single
+genes by n. Be cautious that number of genes in each gene class should be an integer to optimize
+simulation run. A quick Simulation Settings Summary would be returned for each run. Additionally,
+number of cores used for parallel computing, Run Time in unit of hours would be collected after one successful
+run. An example running code is as follows:
 
 .. code-block:: r
 
    dkosim(sample_name = "test", n = 40)
 
-Output data will be generated in current working directory.
 
-Simulation Approximating Laboratory Data
-----------------------------------------
+Run Customized Simulation
+-------------------------
 
-DKOsimR also provides a wrapper function for lab approximating mode to simulate data that resembles
-real laboratory CRISPR screening datasets:
 
-.. code-block:: r
+Alternatively, you may adjust values to any tunable parameters as desired, but please make sure your input
+on percentage of each gene class add up to 1 for all classes, and each initialized number of genes is an
+integer. **You may also change the output directory using path in the function; by default, the
+output simulated data and log is under the same directory of current project workspace.** The
+randomization seed can also be specified by rseed to ensure same subsets of gene-pairs has GI in multiple
+run.
 
-   dkosim_lab(sample_name = "test_lab", n = 20)
-
-This function applies parameter settings that approximate realistic laboratory
-data distributions.
-
-All parameters can be further customized by users to fit specific experimental setup as desired in both mode, for example:
+An example running code is
 
 .. code-block:: r
 
    dkosim(sample_name="test",
-         coverage=10,
-         n=60,
-         n_guide_g=2,
-         sd_freq0 = 1/3.29,
-         moi = 0.3,
-         p_gi=0.03,
-         sd_gi=1.5,
-         p_high=1,
-         mode="CRISPRn-100%Eff",
-         pt_neg=0.15,
-         pt_pos=0.05,
-         pt_wt=0.75,
-         pt_ctrl=0.05,
-         mu_neg=-0.75,
-         sd_neg=0.1,
-         mu_pos=0.75,
-         sd_pos=0.1,
-         sd_wt=0.25,
-         size.bottleneck = 2,
-         n.bottlenecks= 1,
-         n.iterations = 30,
-         rseed = 111,
-         path = ".")
+          coverage=10,
+          n=60,
+          n_guide_g=2,
+          sd_freq0 = 1/3.29,
+          moi = 0.3,
+          p_gi=0.03,
+          sd_gi=1.5,
+          pt_neg=0.15,
+          pt_pos=0.05,
+          pt_wt=0.75,
+          pt_ctrl=0.05,
+          mu_neg=-0.75,
+          sd_neg=0.1,
+          mu_pos=0.75,
+          sd_pos=0.1,
+          sd_wt=0.25,
+          p_high=0.8,
+          mode="CRISPRn",
+          mu_high=0.8,
+          sd_high=0.2,
+          mu_low=0.1,
+          sd_low=0.08,
+          size.bottleneck = 3,
+          n.bottlenecks= 2,
+          n.iterations = 30,
+          rseed = 111,
+          path = ".",
+          cores_free = 2)
 
-Applying Genetic Interaction Detection Methods
------------------------------------------------
-
-Once simulated count data are generated, users can apply GI detection methods.
-
-Example analytical workflow using delta log-fold change (dLFC):
-
-.. code-block:: r
-
-   library(DKOsimR)
-
-   data(example_data_repA)
-
-   head(example_data_repA)
-
-Users may apply several GI detection algorithms including:
-
-- dLFC
-- GEMINI
-- CTG
-- π-score
-
-These methods evaluate interaction effects between gene pairs based on
-log-fold changes observed in double knockout screens.
-
-Choosing Suitable Parameters
-----------------------------
-
-Recommended parameter choices for typical simulations:
-
-- **coverage** : 100
-- **n_guide_g** : 2 or 3
-- **p_gi** : 0.03
-- **p_high** : 1
-- **moi** : ~0.3
-
-These settings generally produce simulation outputs resembling realistic
-CRISPR screening experiments.
-
-Summary
--------
-
-DKOsimR enables researchers to:
-
-- generate reproducible synthetic CRISPR screening datasets
-- benchmark genetic interaction detection methods
-- evaluate experimental design parameters
-
-For further information, please refer to the API documentation.
