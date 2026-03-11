@@ -4,7 +4,7 @@ Applying GI Detection Methods on Simulated Data
 Delta Log Fold Change (dLFC) Application
 ----------------------------------------
 
-Here, we show how we may apply dLFC :cite:`dede2020multiplex` to calculate GI on simulated data, as an example
+Here, we show how we may apply dLFC :cite:p:`dede2020multiplex` to calculate GI on simulated data, as an example
 to analyze the simulation output.
 
 .. code-block:: r
