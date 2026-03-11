@@ -86,7 +86,7 @@ Miscellaneous
 
 An example running code is as follows:
 
-.. code-block:: R
+.. code-block:: r
 
    dkosim_lab(sample_name="test_lab", n=20)
 
@@ -97,7 +97,7 @@ Alternatively, you may adjust values to any tunable parameters as desired, or us
 in the full article to approximate actual lab data pattern in double CRISPR screens. For example, use the following code and 
 parameters to simulate Fong-2024 :cite:p:`fong2024multilineage` laboratory screens:
 
-.. code-block:: R
+.. code-block:: r
 
    dkosim_lab(sample_name="sim_fong2024",
               n = 246,
