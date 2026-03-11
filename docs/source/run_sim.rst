@@ -32,6 +32,7 @@ To start running simulation, simply download and install R/RStudio as the first 
    devtools::install_github("yuegu-phd/DKOsimR", quiet = TRUE)
    devtools::install(dependencies = TRUE)
 
+Make sure all required dependencies are installed using ``devtools::install(dependencies = TRUE)``.
 
 Then you may simply load the package:
 
