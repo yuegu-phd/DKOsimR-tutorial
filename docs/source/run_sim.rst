@@ -20,8 +20,7 @@ Initialized Library Parameters
 - **coverage**: 100
 - **n_guide_g**: 3
 - **moi**: 0.3
-- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold difference between 95th and 5th percentiles of SKO
-counts distribution)
+- **sd_freq0**: 1/3.29 (chosen by setting a 10-fold difference between 95th and 5th percentiles of SKO counts distribution)
 
 Genetic Interaction (GI) Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,4 +140,3 @@ An example running code is
           rseed = 111,
           path = ".",
           cores_free = 2)
-
