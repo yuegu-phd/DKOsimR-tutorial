@@ -5,8 +5,8 @@ How to generate synthetic CRISPR data using DKOsimR?
 
 .. admonition:: Abbreviations
 
-   Abbreviations: KO, knockout; SKO, single knockout; DKO, double knockout; %, percentage;
-   GI, genetic interaction; std. dev., standard deviation.
+   **KO**, knockout; **SKO**, single knockout; **DKO**, double knockout; **%**, percentage;
+   **GI**, genetic interaction; **std. dev.**, standard deviation.
 
 Introduction
 ------------
