@@ -95,7 +95,7 @@ Customized Lab Mode
 
 Alternatively, you may adjust values to any tunable parameters as desired, or using the parameters described 
 in the full article to approximate actual lab data pattern in double CRISPR screens. For example, use the following code and 
-parameters to simulate Fong-2024 laboratory screens:
+parameters to simulate Fong-2024 :cite:`fong2024multilineage` laboratory screens:
 
 .. code-block:: R
 
@@ -124,3 +124,8 @@ parameters to simulate Fong-2024 laboratory screens:
               n.iterations = 30)
 
 Check more details in the full article and example output in the pre-built DKOsimR vignettes (:download:`PDF <files/DKOsimR_vignettes.pdf>`) Section 5.
+
+References
+----------
+
+.. bibliography::

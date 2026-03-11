@@ -4,7 +4,7 @@ Applying GI Detection Methods on Simulated Data
 Delta Log Fold Change (dLFC) Application
 ----------------------------------------
 
-Here, we show how we may apply dLFC (Dede et al., 2020) to calculate GI on simulated data, as an example
+Here, we show how we may apply dLFC :cite:`dede2020multiplex` to calculate GI on simulated data, as an example
 to analyze the simulation output.
 
 .. code-block:: r
@@ -102,8 +102,7 @@ to analyze the simulation output.
 Visualizations
 --------------
 
-Then you may create visualizations on scatterplots to the calculated GI in this dLFC example. Example output are shown
-as follows:
+Then you may visualize the calculated GI from dLFC on scatterplots. An example code for plotting might be constructed as follows:
 
 .. code-block:: r
 
@@ -179,9 +178,17 @@ as follows:
    options(repr.plot.width = 8, repr.plot.height = 10)
    scatterplot_dlfc
 
+
+The example scatterplot is shown below:
+
 .. image:: images/dlfc_vignettes.png
    :width: 700px
    :align: center
    :alt: Example dLFC scatterplot
 
-Check example output in the pre-built DKOsimR vignettes (:download:`PDF <files/DKOsimR_vignettes.pdf>`) Section 6.
+Check relevant details in the pre-built DKOsimR vignettes (:download:`PDF <files/DKOsimR_vignettes.pdf>`) Section 6.
+
+References
+----------
+
+.. bibliography::

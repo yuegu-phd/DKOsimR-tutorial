@@ -15,6 +15,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
+    'sphinxcontrib.bibtex'
 ]
 
 intersphinx_mapping = {
@@ -24,6 +25,8 @@ intersphinx_mapping = {
 intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
+
+bibtex_bibfiles = ['references.bib']
 
 # -- Options for HTML output
 
