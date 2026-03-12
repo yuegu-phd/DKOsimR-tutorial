@@ -36,7 +36,7 @@ GI Parameters
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-Percentage (%) of theoretical phenotype to each gene class - make sure the add up to 1
+% of theoretical phenotype to each gene class - make sure the add up to 1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **pt_neg**: set to values from 0.15 to 0.3 as desired.

@@ -27,7 +27,7 @@ Initialized Library Parameters
 - **sd_freq0**: 1/2.56 (chosen by setting a 10-fold difference between 90th and 10th percentiles of SKO counts distribution)
 
 GI Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 - **p_gi** : 0.03
 - **sd_gi** : 1.5
