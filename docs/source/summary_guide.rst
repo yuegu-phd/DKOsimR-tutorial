@@ -28,7 +28,7 @@ Initialized Library Parameters
 - **sd_freq0**: 1/3.29 by default, chosen by setting a 10-fold difference between 95th and 5th percentiles of SKO counts distribution. Set to 1/2.56, 1/2.07, 1/1.68, 1/1.35, 1/1.05, if you want a 10-fold difference between 90th and 10th, 85th and 15th, 80th and 20th, 75th and 25th, 70th and 30th percentiles, respectively.
 
 GI Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 - **p_gi**: 0.03 by default, chosen by empirical assumption on the presence of GI in real lab that are close to 3%. Can be tuned higher if want higher presence of GIs.
 - **sd_gi**: 1.5 by default and would be sufficient for most cases. This directly affects GI magnitude, and can be tuned lower for smaller GI magnitude.

@@ -72,7 +72,7 @@ Initialized Library Parameters
 - **moi**: multiplicity of infection - % of cells that are transfected by any virus
 - **sd_freq0**: dispersion of initial counts distribution
 
-Genetic Interaction (GI) Parameters
+GI Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **p_gi** : proportion of interacting gene pairs
@@ -81,7 +81,7 @@ Genetic Interaction (GI) Parameters
 Gene Class Parameters
 ~~~~~~~~~~~~~~~~~~~~~
 
-Percentage (%) of theoretical phenotype to each gene class
+% of theoretical phenotype to each gene class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    - **pt_neg**: % negative
