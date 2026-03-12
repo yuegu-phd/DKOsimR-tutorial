@@ -5,7 +5,7 @@ Welcome to DKOsimR Documentation!
 DKOsim is a simulation framework designed to simulate growth-based dual knockout CRISPR screens. 
 It allows users and investigators to efficiently reproduce synthetic data where both the single gene fitness effect and the interaction of gene pairs can be pre-specified.
 
-Introduction
+Quick start
 ------------
 
 This page introduces DKOsimR package for generating synthetic CRISPR double knockout data. See :doc:`Tutorial <tutorial>` for a quickstart on installation and run simulations. A vignettes file
