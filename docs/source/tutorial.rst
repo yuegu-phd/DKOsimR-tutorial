@@ -107,8 +107,8 @@ High-efficacy guides proportion and CRISPR mode
    - **p_high** : proportion of high-efficacy guides
    - **mode**: CRISPR mode:
 
-      - use CRISPRn-100%Eff if need 100% effcient guides without randomization
-      - use CRISPRn if need high-efficient guides drawn from distribution
+      - use `CRISPRn-100%Eff` if need 100% effcient guides without randomization
+      - use `CRISPRn` if need high-efficient guides drawn from distribution
 
 Mean and std. dev. of guide-efficacy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

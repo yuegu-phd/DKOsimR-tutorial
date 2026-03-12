@@ -128,4 +128,4 @@ Check more details in the full article and example output in the pre-built DKOsi
 References
 ----------
 
-1. Fong, S.H., Kuenzi, B.M., Mattson, N.M. et al. A multilineage screen identifies actionable synthetic lethal interactions in human cancers. Nat Genet 57, 154–164 (2025). https://doi.org/10.1038/s41588-024-01971-9.
+[1] Fong, S.H., Kuenzi, B.M., Mattson, N.M. et al. A multilineage screen identifies actionable synthetic lethal interactions in human cancers. Nat Genet 57, 154–164 (2025). https://doi.org/10.1038/s41588-024-01971-9.

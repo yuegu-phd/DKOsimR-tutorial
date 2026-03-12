@@ -59,94 +59,79 @@ Guide Parameters
 High-efficacy guides proportion and CRISPR mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **p_high** : proportion of high-efficacy guides
+   - **p_high**: 1 by default, set from 0.75 to 0.8 to resemble real lab data.
    - **mode**: CRISPR mode:
 
-      - use CRISPRn-100%Eff if need 100% effcient guides without randomization
-      - use CRISPRn if need high-efficient guides drawn from distribution
+      - use `CRISPRn-100%Eff` if need 100% efficient guides without randomization (theoretical case), ensure `p_high` is 1 when using this mode (default mode)
+      - use `CRISPRn` if need high-efficacy guides drawn from distribution (practical case for actual lab setting)
 
 Mean and std. dev. of guide-efficacy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **mu_high**: mean of high-efficacy guides
-   - **sd_high**: std. dev of high-efficacy guides
-   - **mu_low**: mean of low-efficacy guides
-   - **sd_low**: std. dev of low-efficacy guides
+   - **mu_high**: keep unchanged with default value of 0.9.
+   - **sd_high**: keep unchanged with default value of 0.1.
+   - **mu_low**: keep unchanged with default value of 0.05.
+   - **sd_low**: keep unchanged with default value 0.07.
 
 Cell Doublings Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **size.bottleneck**: bottleneck size - threshold indicating the ceiling of cell growth
-   - **n.bottlenecks**: number of bottleneck encounters - how many times do we encountering bottlenecks?
-   - **n.iterations**: number of maximum doubling cycles, by default, we assume a maximum of 30 doublings if we didn't encounter bottleneck
+   - **size.bottleneck**: 2 would be sufficient for most cases. Set it with values of at least 2 to let the simulated cells have chance to grow before reaching the first bottleneck.
+   - **n.bottlenecks**: 1 by default would be sufficient for most cases. This value directly represents the number of passaging, considering use 2 or 3 if want more passages, but might dramatically decrease the cell population diversity as a result.
+   - **n.iterations**: keep unchanged with default value of 30.
 
 Randomization Parameter
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   - **rseed**: values used for random number generator - use same number to control same sets of genes having GI
+   - **rseed**: use a same number to control same sets of genes having GI.
 
 Miscellaneous
 ~~~~~~~~~~~~~
 
-   - **path**: path to directory to save outputs of data and logs from simulation
-   - **cores_free**: number of cores that are left to be free in parallel computing
+   - **path**: keep default or change to path to your project folder.
+   - **cores_free**: keep default for shortest running time, but increase the number to avoid hard coding issues.
 
-Run Simulation by Default
--------------------------
+Suggestions on laboratory data approximation
+--------------------------------------------
 
-To run simulation by default, simply name your simulation by sample_name and specify the number of single
-genes by `n`. **Be cautious that number of genes in each gene class should be an integer to optimize
-simulation run.** A quick Simulation Settings Summary would be returned for each run. Additionally,
-number of cores used for parallel computing, Run Time in unit of hours would be collected after one successful
-run. An example running code is as follows:
+**To approximate patterns from actual laboratory DKO screens.** We suggest using ``dkosim_lab()`` by inputting 
+the same number of genes in each gene class as the laboratory settings. A case example in mimicking 
+Fong-2024 A549[1] has been described in the second major results section of DKOsim article[2]. Here, 
+we provide a list of input parameters for DKOsim (mimicking Fong-2024 A549). Empirically, it took 
+around 2 hours to finish running this approximation with 14 cores enabled for parallel computing.
 
-.. code-block:: r
-
-   dkosim(sample_name = "test", n = 40)
-
-
-Run Customized Simulation
--------------------------
-
-Alternatively, you may adjust values to any tunable parameters as desired, but please make sure your input
-on percentage of each gene class add up to 1 for all classes, and each initialized number of genes is an
-integer. **You may also change the output directory using path in the function; by default, the
-output simulated data and log is under the same directory of current project workspace.** The
-randomization seed can also be specified by rseed to ensure same subsets of gene-pairs has GI in multiple
-run.
-
-An example running code is
+Codes for the mimicking are provided below:
 
 .. code-block:: r
 
-   dkosim(sample_name="test",
-          coverage=10,
-          n=60,
-          n_guide_g=2,
-          sd_freq0 = 1/3.29,
-          moi = 0.3,
-          p_gi=0.03,
-          sd_gi=1.5,
-          pt_neg=0.15,
-          pt_pos=0.05,
-          pt_wt=0.75,
-          pt_ctrl=0.05,
-          mu_neg=-0.75,
-          sd_neg=0.1,
-          mu_pos=0.75,
-          sd_pos=0.1,
-          sd_wt=0.25,
-          p_high=0.8,
-          mode="CRISPRn",
-          mu_high=0.8,
-          sd_high=0.2,
-          mu_low=0.1,
-          sd_low=0.08,
-          size.bottleneck = 3,
-          n.bottlenecks= 2,
-          n.iterations = 30,
-          rseed = 111,
-          path = ".",
-          cores_free = 2)
+   dkosim_lab(sample_name="DKOsimR_246x3x3_1000x_mFong_run1",
+              coverage=1000,
+              n=246,
+              n_guide_g=3,
+              sd_freq0 = 1/2.56,
+              moi = 0.3,
+              p_gi=0.03,
+              sd_gi=1.5,
+              pt_neg=64/246,
+              pt_unknown=178/246,
+              pt_ctrl=4/246,
+              mu_neg=-0.03,
+              sd_neg=0.25,
+              sd_unknown=0.2,
+              p_high=0.75,
+              mode="CRISPRn",
+              mu_high=0.9,
+              sd_high=0.1,
+              mu_low=0.05,
+              sd_low=0.07,
+              size.bottleneck = 2,
+              n.bottlenecks= 1,
+              n.iterations = 30)
 
-Check example output in the pre-built DKOsimR vignettes (:download:`PDF <files/DKOsimR_vignettes.pdf>`) Section 4.
+Check relevant descriptions in the pre-built DKOsimR vignettes (:download:`PDF <files/DKOsimR_vignettes.pdf>`) Section 7.
+
+References
+----------
+
+[1] Fong, S.H., Kuenzi, B.M., Mattson, N.M. et al. A multilineage screen identifies actionable synthetic lethal interactions in human cancers. Nat Genet 57, 154–164 (2025). https://doi.org/10.1038/s41588-024-01971-9.
+[2] Gu, Y., Hart, T. Leon-Novelo, L., & Shen, J.P. (2025). Double-CRISPR Knockout Simulation (DKOsim): A Monte-Carlo Randomization System to Model Cell Growth Behavior and Infer the Optimal Library Design for Growth-Based Double Knockout Screens. Under Revision. https://doi.org/10.1101/2025.09.11.675497.
