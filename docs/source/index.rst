@@ -5,8 +5,17 @@ Welcome to DKOsimR Documentation!
 DKOsim is a simulation framework designed to simulate growth-based dual knockout CRISPR screens. 
 It allows users and investigators to efficiently reproduce synthetic data where both the single gene fitness effect and the interaction of gene pairs can be pre-specified.
 
-See the :doc:`Tutorial <tutorial>` for a quickstart on installation and run simulations. A vignettes file
-of DKOsimR is also available in the R package, and a pre-built output preview (PDF) can be downloaded :download:`here <files/DKOsimR_vignettes.pdf>`.
+Introduction
+------------
+
+This page introduces DKOsimR package for generating synthetic CRISPR double knockout data. See :doc:`Tutorial <tutorial>` for a quickstart on installation and run simulations. A vignettes file
+of DKOsimR is available in the R package, and a pre-built output preview (PDF) can be downloaded :download:`here <files/DKOsimR_vignettes.pdf>`.
+
+For more details to tune and customize your CRISPR simulation, check :doc:`Running Simulation <run_sim>` and :doc:`Laboratory Data Approximation <lab_approx>`.
+
+:doc:`Applying GI Detection Methods on Simulated Data <dlfc_apply>` provides a quick guide and example on how to apply GI detection method on simulated output data, and how to visualize the results.
+
+Finally, we supply the :doc:`Appendix <appendix>` for columns description of the simulated dataset.
 
 .. admonition:: Paper References
 
