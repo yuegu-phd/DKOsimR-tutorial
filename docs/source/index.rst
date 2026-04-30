@@ -19,10 +19,10 @@ Finally, we supply the :doc:`Appendix <appendix>` for columns description of the
 
 .. admonition:: Paper References
 
-   Gu, Y., Hart, T. Leon-Novelo, L., & Shen, J.P. (2025). **Double-CRISPR Knockout Simulation (DKOsim): 
+   Gu, Y., Hart, T. Leon-Novelo, L., & Shen, J.P. (2026). **Double-CRISPR Knockout Simulation (DKOsim): 
    A Monte-Carlo Randomization System to Model Cell Growth Behavior 
    and Infer the Optimal Library Design for Growth-Based Double Knockout Screens.**
-   *Under Revision*. https://doi.org/10.1101/2025.09.11.675497
+   *PLoS Computational Biology*. 22(4): e1013510. https://doi.org/10.1371/journal.pcbi.1013510
 
    Shen, J., Zhao, D., Sasik, R. et al (2017). **Combinatorial CRISPR-Cas9 screens for de novo mapping 
    of genetic interactions.** 
